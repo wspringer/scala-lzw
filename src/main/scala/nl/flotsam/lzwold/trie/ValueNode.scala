@@ -1,6 +1,6 @@
-package nl.flotsam.lzw.trie
+package nl.flotsam.lzwold.trie
 
-import nl.flotsam.lzw.io.Appendable
+import nl.flotsam.lzwold.io.Appendable
 
 class ValueNode(value: Int, rootNode: RootNode, val path: Array[Byte]) extends Node {
 
@@ -32,6 +32,8 @@ class ValueNode(value: Int, rootNode: RootNode, val path: Array[Byte]) extends N
     out.append(value)
   }
 
-  override def toString = "ValueNode(" + value + ")"
+  override def toString = "ValueNode(" +
+    value + (if (value < 256) "'" + value.toChar + "'" else "") +
+    ")"
 
 }

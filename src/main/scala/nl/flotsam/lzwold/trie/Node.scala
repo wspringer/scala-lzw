@@ -1,6 +1,7 @@
-package nl.flotsam.lzw.trie
+package nl.flotsam.lzwold.trie
 
-import nl.flotsam.lzw.io.Appendable
+import nl.flotsam.lzwold.io.Appendable
+import java.io.Writer
 
 trait Node {
   def encode(b: Byte, out: Appendable[Int]): Node

@@ -1,6 +1,6 @@
-package nl.flotsam.lzw.trie
+package nl.flotsam.lzwold.trie
 
-import nl.flotsam.lzw.io.Appendable
+import nl.flotsam.lzwold.io.Appendable
 
 class RootNode(limit: Int = 512) extends Node {
 
