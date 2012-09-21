@@ -11,4 +11,14 @@ object Lzw {
       }
     }
 
+  def decode(factory: (() => Int) => Traversable[Int]): Traversable[Byte] = {
+    new Traversable[Byte] {
+      def foreach[U](f: (Byte) => U) {
+        val root: Node = new RootNode
+        val in = factory({ () => root.bitsRequired })
+        in.foldLeft(root)({ (node, i) => node.decode(i, f)})
+      }
+    }
+  }
+
 }
