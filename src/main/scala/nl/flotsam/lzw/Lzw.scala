@@ -34,7 +34,7 @@ object Lzw {
    * @param in A collection of bytes.
    * @return A non-strict collection providing the values of the LZW encoded representation of the input collection.
    */
-  def encode(in: Traversable[Byte], limit: Int = 256): Traversable[(Int, Int)] =
+  def encode(in: Traversable[Byte], limit: Int = 512): Traversable[(Int, Int)] =
     new Traversable[(Int, Int)] {
       def foreach[U](f: ((Int, Int)) => U) {
         val root: Node = new RootNode(limit)
@@ -63,7 +63,7 @@ object Lzw {
    * @param factory The factory constructing a Traversable of integer values, used as input for the decode operation.
    * @return A Traversable providing the decoded version of the values passed in.
    */
-  def decode(factory: (() => Int) => Traversable[Int], limit: Int = 256): Traversable[Byte] = {
+  def decode(factory: (() => Int) => Traversable[Int], limit: Int = 512): Traversable[Byte] = {
     new Traversable[Byte] {
       def foreach[U](f: (Byte) => U) {
         val root: Node = new RootNode(limit)

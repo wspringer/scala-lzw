@@ -44,6 +44,7 @@ class RootNode(limit: Int = 512) extends Node with NodeManager {
   def create(owner: Node, value: Byte, first: Byte) = if (index <= limit) {
     index += 1
     val node = new ValueNode(index, owner, value, first, this)
+    println(index)
     createdNodes(index - 256) = node
     Some(node)
   } else {
