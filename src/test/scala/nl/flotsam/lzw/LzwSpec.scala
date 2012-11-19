@@ -23,7 +23,7 @@ class LzwSpec extends Specification {
 
   "Lzw" should {
 
-    "be able to encode a sequence of bytes appropriately" in {
+    "be able to encode a sequence of bytes" in {
       Lzw.encode("sir sid eastman easily teases sea sick seals".getBytes("utf-8")).toList must be equalTo(List(
         (115, 8), (105, 9), (114, 9), (32, 9), (256, 9), (100, 9), (32, 9), (101, 9), (97, 9), (115, 9),
         (116, 9), (109, 9), (97, 9), (110, 9), (262, 9), (264, 9), (105, 9), (108, 9), (121, 9), (32, 9),
@@ -32,7 +32,7 @@ class LzwSpec extends Specification {
       ))
     }
 
-    "be able to decode a sequence of Ints" in {
+    "be able to decode a sequence of tokens" in {
       val in = "sir sid eastman easily teases sea sick seals".getBytes("utf-8")
       val encoded = Lzw.encode(in)
       val decoded = Lzw.decode({
