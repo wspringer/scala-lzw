@@ -17,7 +17,7 @@
  */
 package nl.flotsam.lzw
 
-object Lzw {
+class Lzw {
 
   /**
    * LZW encodes a sequence of bytes. Returns a non-strict collection of tuples, where the first element of the tuple
